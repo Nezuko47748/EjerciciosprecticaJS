@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+ 
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios de JavaScript</title>
+   <link rel="stylesheet" href="estilo.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejercicios de JavaScript</h1>
+  <div id="botones"></div>
+  <div id="resultado"></div>
+
+  <script>
+    const nombresJS = [
+      "PrimerEjercicio.js",
+      "SegundoEjercicio.js",
+      "TercerEjercicio.js",
+      "CuartoEjercicio.js",
+      "QuintoEjercicio.js",
+      "SextoEjercicio.js",
+      "SeptimoEjercicio.js",
+      "OctavoEjercicio.js",
+      "NovenoEjercicio.js",
+      "DecimoEjercicio.js",
+      "OnceEjercicio.js",
+      "DoceEjercicio.js",
+      "TreceEjercicio.js",
+      "CatorceEjercicio.js",
+      "QuinceEjercicio.js",
+      "DiesiseisEjercicio.js",
+      "DiesisieteEjercicio.js",
+      "EjercicioDiesiocho.js",
+      "Ciclo_Mientras_05.js",
+      "Condicional_compuesto_03.js",
+      "Condicional_Compuesto_04.js",
+     "Condicional_Compuesto_05.js",
+     "Condicional_Compuesto_06.js",
+     "Condicional_Compuesto_07.js",
+     "Condicional_Compuesto_08.js",
+     "Condicional_Doble_04.js",
+     "Condicional_doble_05.js",
+      "Condicional_doble_06.js",
+      "Condicional_doble_07.js",
+      "Condicional_doble_08.js",
+      "Condicional_doble_09.js",
+      "Condicional_doble_10.js",
+      "Condicional_doble_11.js",
+      "Condicional_doble_12.js"
+    ];
+
+    for (let i = 0; i < nombresJS.length; i++) {
+      const boton = document.createElement("button");
+      boton.textContent = `Ejercicio ${i + 1}`;
+      boton.onclick = () => {
+        document.getElementById("resultado").innerHTML = "";
+        document.querySelectorAll("script[data-ejercicio]").forEach(s => s.remove());
+
+        const script = document.createElement("script");
+        script.src = "Ejercicios_JS/" + nombresJS[i];
+        script.setAttribute("data-ejercicio", "true");
+
+        script.onload = () => console.log(`${nombresJS[i]} cargado.`);
+        script.onerror = () => alert(`Error al cargar ${nombresJS[i]}`);
+        
+        document.body.appendChild(script);
+      };
+      document.getElementById("botones").appendChild(boton);
+    }
+  </script>
+
+</body>
+</html>
